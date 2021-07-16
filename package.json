@@ -12,7 +12,7 @@
     "devDependencies": {
         "@inertiajs/inertia": "^0.9.1",
         "@inertiajs/inertia-vue3": "^0.4.2",
-        "@inertiajs/progress": "^0.2.5",
+        "@inertiajs/progress": "^0.2.6",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.0",
         "@vue/compiler-sfc": "^3.0.5",
@@ -21,12 +21,15 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^12.0.1",
+        "resolve-url-loader": "^4.0.0",
+        "sass": "^1.35.2",
         "tailwindcss": "^2.0.1",
-        "vue": "^3.0.5",
+        "vue": "^3.1.4",
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
         "laravel-echo": "^1.11.0",
-        "pusher-js": "^7.0.3"
+        "pusher-js": "^7.0.3",
+        "sass-loader": "^12.1.0"
     }
 }
