@@ -1,5 +1,42 @@
 // overrides some of the tailwind properties
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #2d2d2d;
+    color: #fefefe;
+}
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Abel", serif;
+    font-family: "Abel", serif !important;
+}
+
+body, p, i, span {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    background: #2d2d2d;
+    color: #fefefe;
+}
+
+input, div, select {
+    background: #2d2d2d;
+    color: #fefefe;
+}
+
+::-webkit-scrollbar {
+    width: .5em;
+    margin-left: .5em;
+}
+   
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background: #2f3640;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #34495e;
+    border-radius: 5px;
 }

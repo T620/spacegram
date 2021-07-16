@@ -1,17 +1,17 @@
 <template>
     <div class="relative ht-10 m-1">
-        <div class="grid grid-cols-6">
+        <div class="form-wrapper">
             <input
                 type="text"
                 v-model="message"
                 @keyup.enter="sendMessage()"
-                placeholder="something intelligent"
-                class="col-span-5 outline-none p-1"
+                placeholder="Say something intelligent"
+                class="form-control pt-1"
             />
 
             <button
                 @click="sendMessage()"
-                class="place-self-end bg-gray-500 hover:bg-blue-100 p-1 mt-1 rounded text-white"
+                class="button"
             >
                 Send
             </button>
@@ -49,3 +49,40 @@
         },
     };
 </script>
+
+<style scoped>
+    .form-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 2em;
+    }
+
+    .form-control {
+        background: #2d2d2d;
+        color: #fefefe;
+        border: 0;
+        border-radius: 0;
+        margin-right: 1em;
+        
+        border-bottom: 1px solid #2f3640;
+        transition: border 200ms linear;
+    }
+
+    .form-control:focus {
+        border-bottom-color: coral;
+        transition: border 200ms linear;
+        outline: 0;
+        outline-offset: 0;
+        box-shadow: none;
+    }
+
+    .button {
+        background: coral;
+        border-radius: 25px;
+        color: #fefefe;
+        padding: 5px 15px;
+    }
+
+
+</style>

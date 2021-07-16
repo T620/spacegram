@@ -1,44 +1,37 @@
 <template>
-    <app-layout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <chat-room-selection
-                    v-if="currentRoom.id"
-                    :rooms="chatRooms"
-                    :currentRoom="currentRoom"
-                    v-on:roomChanged="setRoom($event)"    
-                />
-            </h2>
-        </template>
+    <div class="ui__container">
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <message-container :messages="messages" />
-                    <input-message
-                        :room="currentRoom"
-                        v-on:messageSent="getMessages()"/>
-                </div>
-            </div>
+        <chat-room-selection
+            v-if="currentRoom.id"
+            :rooms="chatRooms"
+            :currentRoom="currentRoom"
+            v-on:roomChanged="setRoom($event)"
+        />
+
+        <div class="chat__container">
+            <message-container :userID="userID" :messages="messages" />
+            <input-message
+                :room="currentRoom"
+                v-on:messageSent="getMessages()"
+            />
         </div>
-    </app-layout>
+    </div>
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
     import MessageContainer from './messageContainer.vue'
     import InputMessage from './inputMessage.vue'
     import ChatRoomSelection from './chatRoomSelection.vue'
 
     export default {
         components: {
-            AppLayout,
             MessageContainer,
             InputMessage,
-                ChatRoomSelection
+            ChatRoomSelection
         },
         data: () => {
             return {
+                userID: 0,
                 chatRooms: [],
                 currentRoom: [],
                 messages: [],
@@ -91,7 +84,26 @@
             }
         },
         created() {
+            const userID = document.querySelector("meta[name='user-id']").getAttribute('content');
+            this.userID = userID;
+            console.log('userID -> ', userID);
             this.getRooms();
         },
     }
 </script>
+
+<style scoped>
+    .ui__container {
+        display: flex;
+        align-items: flex-start;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .chat__container {
+        width: 80vw;
+        height: 100%;
+        border-left: 1px solid #2f3640;
+    }
+</style>

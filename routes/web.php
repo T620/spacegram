@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
-    return Inertia::render('Chat/container');
+    return view('chat');
 })->name('chat');
 
 Route::middleware(['auth:sanctum'])->get('/chat/rooms', [ChatController::class, 'rooms']);
